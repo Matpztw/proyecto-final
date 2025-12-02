@@ -1,0 +1,107 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Relojes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+    function guardarUsuario() {
+        const usuario = {
+            nombre: document.querySelector('input[type="text"]').value,
+            edad: document.querySelector('input[type="number"]').value,
+            genero: document.querySelector('select').value,
+            correo: document.querySelector('input[type="email"]').value,
+            password: document.querySelector('input[type="password"]').value
+        };
+
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        alert("Usuario registrado correctamente");
+        window.location.href = "perfil.html";
+    }
+</script>
+
+
+<body class="fondo">
+
+    <header class="py-4 text-center text-white tienda-header">
+        <h1 class="display-5 fw-bold m-0">Elegance Watches</h1>
+    </header>
+
+
+
+    <!-- Sección Registrarse -->
+    <section id="registrarse" class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card p-4 sombra-registro">
+                    <h2 class="text-center mb-3">Crear una cuenta</h2>
+                    <p class="text-muted text-center mb-4">Regístrate para disfrutar de beneficios exclusivos</p>
+
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Edad</label>
+                            <input type="number" class="form-control" placeholder="Tu edad">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Género</label>
+                            <select class="form-select">
+                                <option value="" disabled selected>Selecciona tu género</option>
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" placeholder="Crea una contraseña">
+                        </div>
+
+                        <button type="button" class="btn btn-dark w-100" onclick="guardarUsuario()">
+                            Registrarme
+                        </button>
+
+
+                        <h1>Nota importante: Al resgistrarse los datos se guardaran y mostraran en la
+                            sección "Mi perfil"
+                        </h1>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <button type="button" class="btn btn-dark w-100" onclick="registrarUsuario()">
+    Registrarme
+</button>
+
+<button type="button" class="btn btn-success w-50" onclick="actualizarUsuario()">
+    Actualizar
+</button>
+
+    <script src="js/app.js"></script>
+</body>
+
+
+</html>
